@@ -5,7 +5,8 @@ const TreeNode = ({ node, setData }) => {
 
     const handleToggle = () => {
         setIsExpanded(!isExpanded);
-        setData(node.name);
+        console.log("SetExpande ===" + node.name);
+        setData(node);
     };
 
     return (

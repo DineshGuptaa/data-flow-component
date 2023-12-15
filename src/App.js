@@ -6,14 +6,14 @@ import BodyView from './components/body-view/BodyView'
 import axios from "axios";
 var treeData = null;
 function App() {
-  const [initdata, setData] = useState('initial State');
+  const [initdata, setData] = useState('Initial State');
   const getData = async () => {
     await axios
       .get("http://localhost/treeData.json")//./data.json")
       .then((res) => {
         treeData = res.data;
         setData(treeData);
-        console.log("data" + treeData);
+        console.log("data" + initdata);
       })
       .catch(err => console.log(err))
   }
@@ -27,7 +27,7 @@ function App() {
       <div style={{ display: "flex" }}>
         {treeData && <TreeView data={treeData} setData={setData} />}
         <div style={{ maxWidth: '800px' }}>
-          {treeData && <BodyView data={initdata} />}
+          {initdata && <BodyView data={initdata} />}
         </div>
       </div>
     </div>
