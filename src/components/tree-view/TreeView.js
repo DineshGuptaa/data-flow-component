@@ -12,12 +12,12 @@ const TreeNode = ({ node, setData }) => {
     return (
         <div className="tree-node">
             <div onClick={handleToggle} className={`node-toggle ${isExpanded ? 'expanded' : ''}`}>
-                {isExpanded && node.children.length > 0 ? '-' : '+'} {node.name}
+                {isExpanded && node.questions.length > 0 ? '-' : '+'} {node.name}
             </div>
             {isExpanded && (
                 <ul className="child-nodes">
-                    {node.children.map((childNode) => (
-                        <li key={childNode.id}>
+                    {node.questions.map((childNode) => (
+                        <li key={childNode.question_id}>
                             <TreeNode node={childNode} setData={setData} />
                         </li>
                     ))}
